@@ -14,7 +14,13 @@ Contains the domain entities or models.
 
 #### Ports
 
-Interfaces for the use cases or services of the application.
+##### Entry Ports
+
+Interfaces used for communication from the outside to the inside of the application. As an example, it can be a service.
+
+##### Exit Ports
+
+Interfaces used for communication from the inside to the outside of the application. As an example, it can be a repository.
 
 #### Use Cases or Services
 
@@ -26,11 +32,11 @@ Contains the implementation of the interfaces defined in the core. It is depende
 
 ### Drivers
 
-It is the entry point of the application. It is dependent on the core and uses a framework or database. As an example, it can be a web server.
+Are the ones that receive method calls from the outside of the application. As an example, it can be a web server.
 
 ### Driven
 
-It is the exit point of the application. It is dependent on the core and uses a framework or database. As an example, it can be a database.
+Are the ones that receive method calls from the inside of the application. As an example, it can be a database.
 
 ## Folder Structure
 
