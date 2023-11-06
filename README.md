@@ -51,32 +51,25 @@ Are the ones with the goal of only send data and forget it like a message broker
 ```sh
 .
 |____tests
-|____src
-| |____adapter
-| | |____driver
-| | | |____api
-| | | | |____controllers
-| | | | | |____user_controller.py
-| | | | |____program.py
-| | |____driven
-| | | |____infra
-| | | | |____repositories
-| | | | | |____user_repository.py
-| | | | |____orm
-| | | | | |____.gitkeep
-| |____core
-| | |____domain
-| | | |____base
-| | | | |____assertion_concern.py
-| | | |____entities
-| | | | |____user.py
-| | | |____value_objects
-| | | | |____.gitkeep
-| | |____application
-| | | |____services
-| | | | |____user_service.py
-| | | |____ports
-| | | | |____user_service.py
-| | | | |____user_repository.py
-|____README.md
+|____app
+| |____src
+| | |____adapter
+| | | |____driver
+| | | | |____api
+| | | | | |____api_v1
+| | | | | | |____endpoints
+| | | | | |____controllers
+| | | |____driven
+| | | | |____infra
+| | | | | |____database
+| | | | | | |____repositories
+| | | | | | |____models
+| | |____core
+| | | |____domain
+| | | | |____base
+| | | | |____entities
+| | | | |____value_objects
+| | | |____application
+| | | | |____services
+| | | | |____ports
 ```
