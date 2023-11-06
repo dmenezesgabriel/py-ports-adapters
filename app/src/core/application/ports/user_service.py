@@ -1,6 +1,7 @@
 from typing import List
 from src.core.domain.entities.user import User
 
+
 class UserServiceInterface:
     def get_user(self, user_id: int) -> User:
         raise NotImplementedError
