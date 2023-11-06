@@ -1,8 +1,9 @@
 from typing import List
 
-from core.domain.entities.user import User
-from core.application.ports.user_service import UserServiceInterface
-from core.application.ports.user_repository import UserRepositoryInterface
+from src.core.domain.entities.user import User
+from src.core.application.ports.user_service import UserServiceInterface
+from src.core.application.ports.user_repository import UserRepositoryInterface
+
 
 class UserService(UserServiceInterface):
     """User use case or service implementation."""

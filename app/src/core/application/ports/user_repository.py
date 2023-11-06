@@ -1,10 +1,8 @@
 from typing import List
-from core.application.ports.user_repository import UserRepositoryInterface
-from core.domain.entities.user import User
+from src.core.domain.entities.user import User
 
 
-class UserRepository(UserRepositoryInterface):
-    """User repository implementation."""
+class UserRepositoryInterface:
     def get_user(self, user_id: int) -> User:
         raise NotImplementedError
 

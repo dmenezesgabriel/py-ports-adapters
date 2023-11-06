@@ -1,12 +1,19 @@
 from typing import List
+from src.core.application.ports.user_repository import UserRepositoryInterface
 from src.core.domain.entities.user import User
 
-class UserRepositoryInterface:
+
+class UserRepository(UserRepositoryInterface):
+    """User repository implementation."""
+
     def get_user(self, user_id: int) -> User:
-        raise NotImplementedError
+        return User(email="example1@example.com", password="123")
 
     def get_users(self) -> List[User]:
-        raise NotImplementedError
+        return [
+            User(email="example1@example.com", password="123"),
+            User(email="example1@example.com", password="123"),
+        ]
 
     def create_user(self, user: User) -> User:
         raise NotImplementedError

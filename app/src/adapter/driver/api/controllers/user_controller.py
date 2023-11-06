@@ -1,9 +1,13 @@
-from core.application.ports.user_service import UserServiceInterface
+from src.core.application.ports.user_service import UserServiceInterface
 
 
 class UserController:
-    def __init__(self, logger: LoggerInterface, user_service: UserServiceInterface):
-        self.logger = logger
+    def __init__(
+            self,
+            # logger: LoggerInterface,
+            user_service: UserServiceInterface
+    ):
+        # self.logger = logger
         self.user_service = user_service
 
     def get_user(self):
