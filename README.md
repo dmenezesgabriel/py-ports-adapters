@@ -73,3 +73,11 @@ Are the ones with the goal of only send data and forget it like a message broker
 | | | | |____services
 | | | | |____ports
 ```
+
+## Resources
+
+- https://github.com/bobthemighty/python-ports-adapters
+- https://github.com/jorzel/opentable
+- https://github.com/pcieslinski/courses_platform
+- https://github.com/evoludigit/clean_fastapi
+- https://github.com/kurosouza/webshop

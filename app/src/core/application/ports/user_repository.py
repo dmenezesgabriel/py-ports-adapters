@@ -3,7 +3,7 @@ from typing import List
 from src.core.domain.entities.user import User
 
 
-class UserRepositoryInterface:
+class UserRepositoryInterface(metaclass=abc.ABCMeta):
     @classmethod
     def __subclasshook__(cls, __subclass: type) -> bool:
         return (
