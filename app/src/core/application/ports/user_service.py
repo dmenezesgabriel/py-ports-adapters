@@ -7,35 +7,35 @@ class UserServiceInterface(metaclass=abc.ABCMeta):
     @classmethod
     def __subclasshook__(cls, __subclass: type) -> bool:
         return (
-            hasattr(__subclass, 'get_user') and
-            callable(__subclass.get_user) and
-            hasattr(__subclass, 'get_users') and
-            callable(__subclass.get_users) and
-            hasattr(__subclass, 'create_user') and
-            callable(__subclass.create_user) and
-            hasattr(__subclass, 'update_user') and
-            callable(__subclass.update_user) and
-            hasattr(__subclass, 'delete_user') and
-            callable(__subclass.delete_user) or
+            hasattr(__subclass, 'get_by_id') and
+            callable(__subclass.get_by_id) and
+            hasattr(__subclass, 'get_all') and
+            callable(__subclass.get_all) and
+            hasattr(__subclass, 'create') and
+            callable(__subclass.create) and
+            hasattr(__subclass, 'update') and
+            callable(__subclass.update) and
+            hasattr(__subclass, 'delete') and
+            callable(__subclass.delete) or
             NotImplemented
         )
 
     @abc.abstractmethod
-    def get_user(self, user_id: int) -> User:
+    def get_by_id(self, id: int) -> User:
         raise NotImplementedError
 
     @abc.abstractmethod
-    def get_users(self) -> List[User]:
+    def get_all(self) -> List[User]:
         raise NotImplementedError
 
     @abc.abstractmethod
-    def create_user(self, user: User) -> User:
+    def create(self, user: User) -> User:
         raise NotImplementedError
 
     @abc.abstractmethod
-    def update_user(self, user: User) -> User:
+    def update(self, user: User) -> User:
         raise NotImplementedError
 
     @abc.abstractmethod
-    def delete_user(self, user_id: int) -> bool:
+    def delete(self, id: int) -> bool:
         raise NotImplementedError

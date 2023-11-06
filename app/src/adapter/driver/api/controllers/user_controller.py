@@ -10,22 +10,22 @@ class UserController:
         # self.logger = logger
         self.user_service = user_service
 
-    def get_user(self):
-        user = self.user_service.get_user()
+    def get_by_id(self):
+        user = self.user_service.get_by_id()
         return user
 
-    def get_users(self):
-        users = self.user_service.get_users()
+    def get_all(self):
+        users = self.user_service.get_all()
         return users
 
-    def create_user(self):
-        user = self.user_service.create_user()
+    def create(self):
+        user = self.user_service.create()
         return user
 
-    def update_user(self):
-        user = self.user_service.update_user()
+    def update(self):
+        user = self.user_service.update()
         return user
 
-    def delete_user(self):
-        user = self.user_service.delete_user()
+    def delete(self):
+        user = self.user_service.delete()
         return user

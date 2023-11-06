@@ -17,5 +17,5 @@ router = APIRouter(prefix="/users", tags=["users"])
 
 @router.get("/")
 async def read_users():
-    return user_controller.get_users()
+    return user_controller.get_all()
 
