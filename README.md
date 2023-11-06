@@ -38,6 +38,14 @@ Are the ones that receive method calls from the outside of the application. As a
 
 Are the ones that receive method calls from the inside of the application. As an example, it can be a database.
 
+#### Repositories
+
+Are the ones with the goal of send and receive data from the database or other storage device.
+
+#### Recipients
+
+Are the ones with the goal of only send data and forget it like a message broker or SMTP server.
+
 ## Folder Structure
 
 ```sh
