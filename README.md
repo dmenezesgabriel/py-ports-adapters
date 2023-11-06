@@ -30,11 +30,11 @@ Contains the use cases or services of the application.
 
 Contains the implementation of the interfaces defined in the core. It is dependent on the core and uses a framework or database.
 
-### Drivers
+### Drivers (Actors)
 
 Are the ones that receive method calls from the outside of the application. As an example, it can be a web server.
 
-### Driven
+### Driven (Actors)
 
 Are the ones that receive method calls from the inside of the application. As an example, it can be a database.
 
