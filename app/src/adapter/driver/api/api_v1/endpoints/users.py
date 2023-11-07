@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from src.adapter.driven.infra.database.repositories.user_repository import (
+from src.adapter.driven.infra.database.sqlalchemy.repositories.user_repository import (
     UserRepository,
 )
 from src.core.application.services.user_service import UserService
@@ -18,4 +18,3 @@ router = APIRouter(prefix="/users", tags=["users"])
 @router.get("/")
 async def read_users():
     return user_controller.get_all()
-
