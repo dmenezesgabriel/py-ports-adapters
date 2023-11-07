@@ -1,5 +1,6 @@
-class User:
-    """User entity."""
-    def __init__(self, password: str, email: str):
-        self.password = password
-        self.email = email
+from pydantic import BaseModel
+
+
+class User(BaseModel):
+    email: str
+    password: str

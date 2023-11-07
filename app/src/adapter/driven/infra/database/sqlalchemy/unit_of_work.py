@@ -6,7 +6,7 @@ class SQLAlchemyUnitOfWork(UnitOfWork):
         self.session = session
 
     def __enter__(self):
-        self.session.begin()
+        return self.session
 
     def __exit__(self, type, value, traceback):
         try:
