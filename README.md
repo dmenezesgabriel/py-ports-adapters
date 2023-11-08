@@ -82,3 +82,4 @@ Are the ones with the goal of only send data and forget it like a message broker
 - https://github.com/evoludigit/clean_fastapi
 - https://github.com/kurosouza/webshop
 - https://medium.com/@surajit.das0320/understanding-unit-of-work-manager-bcdfb9190d86
+- https://github.com/pydantic/pydantic/issues/2897

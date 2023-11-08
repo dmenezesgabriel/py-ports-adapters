@@ -29,8 +29,7 @@ coverage:
 	python3 -m pytest --cov-report xml --cov=./
 
 test:
-	python3 -m pip install pytest
-	python3 -m pytest --verbose --color=yes --ignore=tests/
+	python3 -m pytest -s tests/
 
 coverage-report:
 	pytest tests/ --cov-report term --cov=./
