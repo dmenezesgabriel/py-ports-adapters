@@ -10,12 +10,11 @@ class SQLAlchemyUnitOfWork(UnitOfWork):
 
     def __exit__(self, type, value, traceback):
         try:
-            self.commit()
+            self.session.commit()
         except Exception:
-            self.rollback()
+            self.session.rollback()
 
     def commit(self):
-        self.session.flush()
         self.session.commit()
         self.session.close()
 

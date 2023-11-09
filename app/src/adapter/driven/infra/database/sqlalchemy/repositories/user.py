@@ -1,6 +1,6 @@
 from typing import List
 from src.core.application.ports.user_repository import UserRepositoryInterface
-from src.core.domain.entities.user import User
+from src.adapter.driven.infra.database.sqlalchemy.models.user import User
 
 
 class UserRepository(UserRepositoryInterface):
@@ -13,10 +13,8 @@ class UserRepository(UserRepositoryInterface):
             return session.query(User).filter_by(id=id).first()
 
     def get_all(self) -> List[User]:
-        return [
-            User(email="example1@example.com", password="123"),
-            User(email="example1@example.com", password="123"),
-        ]
+        with self._work_manager.start() as session:
+            return session.query(User).all()
 
     def create(self, user: User) -> User:
         with self._work_manager.start() as session:

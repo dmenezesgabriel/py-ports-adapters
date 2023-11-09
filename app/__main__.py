@@ -1,15 +1,12 @@
 import uvicorn
 from src.adapter.driven.infra.database.sqlalchemy.orm import (
-    metadata, engine
+    engine, Base
 )
-from src.adapter.driven.infra.database.sqlalchemy.models.user import (
-    start_mapper
-)
+from src.adapter.driven.infra.database.sqlalchemy.models import user
 
 
 if __name__ == "__main__":
-    metadata.create_all(engine)
-    start_mapper()
+    Base.metadata.create_all(engine)
 
     uvicorn.run(
         "src.adapter.driver.api.app:app",

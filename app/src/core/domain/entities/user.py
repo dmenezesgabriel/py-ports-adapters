@@ -1,7 +1,8 @@
-import pydantic
+from pydantic import BaseModel, ConfigDict
 
 
-@pydantic.dataclasses.dataclass
-class User():
+class User(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     email: str
     password: str

@@ -10,7 +10,13 @@ class SQLAlchemyUnitOfWorkManager(UnitOfWorkManager):
     _engine = engine
 
     def __init__(self) -> None:
-        self._session_factory = sessionmaker(bind=self._engine)
+        self._session_factory = sessionmaker(
+            bind=self._engine,
+            autocommit=False,
+            autoflush=False,
+            expire_on_commit=False
+        )
 
     def start(self):
-        return SQLAlchemyUnitOfWork(self._session_factory())
+        SessionLocal = self._session_factory()
+        return SQLAlchemyUnitOfWork(session=SessionLocal)
