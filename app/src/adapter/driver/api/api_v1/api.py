@@ -1,7 +1,6 @@
 from fastapi import APIRouter
 from src.adapter.driver.api.api_v1.endpoints import users
 
-
 router = APIRouter()
 
 

@@ -5,7 +5,5 @@ Base = declarative_base()
 
 
 engine = create_engine(
-            'sqlite:///./app.db',
-            echo=True,
-            connect_args={"check_same_thread": False}
-        )
+    "sqlite:///./app.db", echo=True, connect_args={"check_same_thread": False}
+)

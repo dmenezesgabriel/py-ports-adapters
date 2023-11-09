@@ -1,10 +1,12 @@
 from typing import List
-from src.core.application.ports.user_repository import UserRepositoryInterface
+
 from src.adapter.driven.infra.database.sqlalchemy.models.user import User
+from src.core.application.ports.user_repository import UserRepositoryInterface
 
 
 class UserRepository(UserRepositoryInterface):
     """User repository implementation."""
+
     def __init__(self, work_manager):
         self._work_manager = work_manager
 

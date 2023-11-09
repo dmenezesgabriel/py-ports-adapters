@@ -1,19 +1,18 @@
 from typing import List
 
 from fastapi import APIRouter
-from src.core.domain.entities.user import User
-from src.adapter.driven.infra.database.sqlalchemy.unit_of_work_manager import (
-    SQLAlchemyUnitOfWorkManager,
+from src.adapter.driven.infra.database.sqlalchemy.models.user import (
+    User as UserModel,
 )
 from src.adapter.driven.infra.database.sqlalchemy.repositories.user import (
     UserRepository,
 )
-from src.core.application.services.user import UserService
-from src.adapter.driver.api.controllers.user import (
-    UserController
+from src.adapter.driven.infra.database.sqlalchemy.unit_of_work_manager import (
+    SQLAlchemyUnitOfWorkManager,
 )
-from src.adapter.driven.infra.database.sqlalchemy.models.user import User as UserModel
-
+from src.adapter.driver.api.controllers.user import UserController
+from src.core.application.services.user import UserService
+from src.core.domain.entities.user import User
 
 work_manager = SQLAlchemyUnitOfWorkManager()
 user_repository = UserRepository(work_manager)

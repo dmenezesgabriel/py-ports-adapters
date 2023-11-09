@@ -1,10 +1,11 @@
 import os
 from functools import lru_cache
+
+from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from dotenv import load_dotenv
-from src.adapter.driver.api.api_v1.api import router as api_router
 from src.adapter.driver.api import config
+from src.adapter.driver.api.api_v1.api import router as api_router
 
 load_dotenv()
 

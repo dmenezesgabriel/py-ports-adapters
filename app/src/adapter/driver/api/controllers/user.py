@@ -1,13 +1,14 @@
 from typing import List
-from src.core.domain.entities.user import User
+
 from src.core.application.ports.user_service import UserServiceInterface
+from src.core.domain.entities.user import User
 
 
 class UserController:
     def __init__(
-            self,
-            # logger: LoggerInterface,
-            user_service: UserServiceInterface
+        self,
+        # logger: LoggerInterface,
+        user_service: UserServiceInterface,
     ):
         # self.logger = logger
         self.user_service = user_service
@@ -30,4 +31,3 @@ class UserController:
 
     def delete(self, user: User) -> bool:
         return self.user_service.delete(user)
-
