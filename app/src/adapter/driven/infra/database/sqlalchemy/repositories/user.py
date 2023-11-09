@@ -31,5 +31,7 @@ class UserRepository(UserRepositoryInterface):
     def delete(self, id: int) -> bool:
         with self._work_manager.start() as session:
             user = session.query(User).filter_by(id=id).first()
+            if user is None:
+                return False
             session.delete(user)
             return True

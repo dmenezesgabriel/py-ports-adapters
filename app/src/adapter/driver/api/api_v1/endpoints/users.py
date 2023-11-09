@@ -36,3 +36,8 @@ async def read_user(user_id: int):
 @router.post("/")
 async def create_user(user: User):
     return user_controller.create(UserModel(**user.model_dump()))
+
+
+@router.delete("/{user_id}")
+async def delete_user(user_id: int):
+    return user_controller.delete(user_id)

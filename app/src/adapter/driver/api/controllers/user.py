@@ -29,5 +29,5 @@ class UserController:
         user = self.user_service.update(user)
         return user
 
-    def delete(self, user: User) -> bool:
-        return self.user_service.delete(user)
+    def delete(self, id: int) -> bool:
+        return self.user_service.delete(id)
