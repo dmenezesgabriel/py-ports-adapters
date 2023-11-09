@@ -1,12 +1,13 @@
 from typing import List
 
-from src.core.domain.entities.user import User
-from src.core.application.ports.user_service import UserServiceInterface
 from src.core.application.ports.user_repository import UserRepositoryInterface
+from src.core.application.ports.user_service import UserServiceInterface
+from src.core.domain.entities.user import User
 
 
 class UserService(UserServiceInterface):
     """User use case or service implementation."""
+
     def __init__(self, user_repository: UserRepositoryInterface):
         self.user_repository = user_repository
 

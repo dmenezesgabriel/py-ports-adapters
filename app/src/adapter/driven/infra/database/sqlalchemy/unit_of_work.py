@@ -6,16 +6,15 @@ class SQLAlchemyUnitOfWork(UnitOfWork):
         self.session = session
 
     def __enter__(self):
-        self.session.begin()
+        return self.session
 
     def __exit__(self, type, value, traceback):
         try:
-            self.commit()
+            self.session.commit()
         except Exception:
-            self.rollback()
+            self.session.rollback()
 
     def commit(self):
-        self.session.flush()
         self.session.commit()
         self.session.close()
 

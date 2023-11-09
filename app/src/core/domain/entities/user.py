@@ -1,5 +1,8 @@
-class User:
-    """User entity."""
-    def __init__(self, password: str, email: str):
-        self.password = password
-        self.email = email
+from pydantic import BaseModel, ConfigDict
+
+
+class User(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    email: str
+    password: str

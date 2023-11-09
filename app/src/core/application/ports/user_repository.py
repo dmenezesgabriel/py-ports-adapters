@@ -1,5 +1,6 @@
 import abc
 from typing import List
+
 from src.core.domain.entities.user import User
 
 
@@ -7,17 +8,17 @@ class UserRepositoryInterface(metaclass=abc.ABCMeta):
     @classmethod
     def __subclasshook__(cls, __subclass: type) -> bool:
         return (
-            hasattr(__subclass, 'get_by_id') and
-            callable(__subclass.get_by_id) and
-            hasattr(__subclass, 'get_all') and
-            callable(__subclass.get_all) and
-            hasattr(__subclass, 'create') and
-            callable(__subclass.create) and
-            hasattr(__subclass, 'update') and
-            callable(__subclass.update) and
-            hasattr(__subclass, 'delete') and
-            callable(__subclass.delete) or
-            NotImplemented
+            hasattr(__subclass, "get_by_id")
+            and callable(__subclass.get_by_id)
+            and hasattr(__subclass, "get_all")
+            and callable(__subclass.get_all)
+            and hasattr(__subclass, "create")
+            and callable(__subclass.create)
+            and hasattr(__subclass, "update")
+            and callable(__subclass.update)
+            and hasattr(__subclass, "delete")
+            and callable(__subclass.delete)
+            or NotImplemented
         )
 
     @abc.abstractmethod
