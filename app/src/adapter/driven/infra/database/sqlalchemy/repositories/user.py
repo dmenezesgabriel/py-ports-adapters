@@ -14,6 +14,10 @@ class UserRepository(UserRepositoryInterface):
         with self._work_manager.start() as session:
             return session.query(User).filter_by(id=id).first()
 
+    def get_by_email(self, email: str) -> User:
+        with self._work_manager.start() as session:
+            return session.query(User).filter_by(email=email).first()
+
     def get_all(self) -> List[User]:
         with self._work_manager.start() as session:
             return session.query(User).all()

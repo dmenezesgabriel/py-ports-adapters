@@ -1,6 +1,6 @@
 from typing import List
 
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from src.adapter.driven.infra.database.sqlalchemy.models.user import (
     User as UserModel,
 )
@@ -30,14 +30,24 @@ async def read_users():
 
 @router.get("/{user_id}", response_model=User)
 async def read_user(user_id: int):
-    return user_controller.get_by_id(user_id)
+    user = user_controller.get_by_id(user_id)
+    if user is None:
+        raise HTTPException(status_code=404, detail="User not found")
+    return user
 
 
 @router.post("/")
 async def create_user(user: User):
+    if user_controller.get_by_email(user.email) is not None:
+        raise HTTPException(
+            status_code=400, detail="User with this email already exists"
+        )
     return user_controller.create(UserModel(**user.model_dump()))
 
 
 @router.delete("/{user_id}")
 async def delete_user(user_id: int):
+    user = user_controller.get_by_id(user_id)
+    if user is None:
+        raise HTTPException(status_code=404, detail="User not found")
     return user_controller.delete(user_id)

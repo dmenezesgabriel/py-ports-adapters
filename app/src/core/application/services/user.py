@@ -14,6 +14,9 @@ class UserService(UserServiceInterface):
     def get_by_id(self, id: int) -> User:
         return self.user_repository.get_by_id(id)
 
+    def get_by_email(self, email: str) -> User:
+        return self.user_repository.get_by_email(email)
+
     def get_all(self) -> List[User]:
         return self.user_repository.get_all()
 

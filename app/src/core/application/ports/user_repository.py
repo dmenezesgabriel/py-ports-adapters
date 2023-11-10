@@ -10,6 +10,8 @@ class UserRepositoryInterface(metaclass=abc.ABCMeta):
         return (
             hasattr(__subclass, "get_by_id")
             and callable(__subclass.get_by_id)
+            and hasattr(__subclass, "get_by_email")
+            and callable(__subclass.get_by_email)
             and hasattr(__subclass, "get_all")
             and callable(__subclass.get_all)
             and hasattr(__subclass, "create")
@@ -23,6 +25,10 @@ class UserRepositoryInterface(metaclass=abc.ABCMeta):
 
     @abc.abstractmethod
     def get_by_id(self, id: int) -> User:
+        raise NotImplementedError
+
+    @abc.abstractmethod
+    def get_by_email(self, email: str) -> User:
         raise NotImplementedError
 
     @abc.abstractmethod
