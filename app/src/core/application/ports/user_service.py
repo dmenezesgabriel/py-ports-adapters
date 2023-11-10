@@ -22,6 +22,10 @@ class UserServiceInterface(metaclass=abc.ABCMeta):
         )
 
     @abc.abstractmethod
+    def __init__(self, user_repository: str):
+        raise NotImplementedError
+
+    @abc.abstractmethod
     def get_by_id(self, id: int) -> User:
         raise NotImplementedError
 
