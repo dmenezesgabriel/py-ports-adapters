@@ -1,22 +1,23 @@
 services:
   api:
-    build: ./app
+    build: .
     ports:
-      - "8000:8000"
+      - "8008:8000"
     env_file:
       - .env.template
     depends_on:
-      - database
+      - postgres
+    command: bash -c 'while !</dev/tcp/postgres/5432; do sleep 1; done; uvicorn src.adapter.driver.api.app:app --host 0.0.0.0'
 
   migrations:
-    build: ./app
+    build: .
     env_file:
       - .env.template
     depends_on:
-      - database
-    command: bash -c "cd migrations/alembic && alembic upgrade head"
+      - postgres
+    command: bash -c "while !</dev/tcp/postgres/5432; do sleep 1; done; alembic -c migrations/alembic/alembic.ini upgrade head"
 
-  database:
+  postgres:
     image: postgres:16.0-alpine
     ports:
       - "5432:5432"
