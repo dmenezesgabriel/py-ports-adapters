@@ -50,28 +50,37 @@ Are the ones with the goal of only send data and forget it like a message broker
 
 ```sh
 .
-|____tests
-|____app
-| |____src
-| | |____adapter
-| | | |____driver
-| | | | |____api
-| | | | | |____api_v1
-| | | | | | |____endpoints
-| | | | | |____controllers
-| | | |____driven
-| | | | |____infra
-| | | | | |____database
-| | | | | | |____repositories
+|____.vscode
+|____src
+| |____adapter
+| | |____driver
+| | | |____api
+| | | | |____api_v1
+| | | | | |____endpoints
+| | | | |____controllers
+| | |____driven
+| | | |____infra
+| | | | |____database
+| | | | | |____sqlalchemy
 | | | | | | |____models
-| | |____core
-| | | |____domain
-| | | | |____base
-| | | | |____entities
-| | | | |____value_objects
-| | | |____application
-| | | | |____services
-| | | | |____ports
+| | | | | | |____repositories
+| |____core
+| | |____domain
+| | | |____base
+| | | |____entities
+| | | |____value_objects
+| | |____application
+| | | |____services
+| | | |____ports
+|____tests
+| |____core
+| | |____domain
+| | | |____entities
+| | |____application
+| | | |____services
+|____migrations
+| |____alembic
+| | |____versions
 ```
 
 ## Resources
