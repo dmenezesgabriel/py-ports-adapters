@@ -1,0 +1,39 @@
+services:
+  api:
+    build: ./app
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env.template
+    depends_on:
+      - database
+
+  migrations:
+    build: ./app
+    env_file:
+      - .env.template
+    depends_on:
+      - database
+    command: bash -c "cd migrations/alembic && alembic upgrade head"
+
+  database:
+    image: postgres:16.0-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - py_ports_adapters_postgres_data:/var/lib/postgresql/data
+    env_file:
+      - .env.template
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - api
+
+volumes:
+  py_ports_adapters_postgres_data:

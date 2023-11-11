@@ -1,4 +1,7 @@
-.PHONY: help clean clean-build coverage
+include .env.template
+export $(shell sed 's/=.*//' .env)
+
+.PHONY: help clean clean-build coverage migrations
 
 .DEFAULT: help
 
@@ -39,3 +42,12 @@ coverage-missing:
 
 lint:
 	flake8
+
+first-migration:
+	alembic -c migrations/alembic/alembic.ini revision --autogenerate -m"First commit"
+
+migrations:
+	alembic -c migrations/alembic/alembic.ini upgrade head
+
+run:
+	python .
