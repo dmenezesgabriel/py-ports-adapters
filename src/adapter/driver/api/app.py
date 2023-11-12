@@ -1,29 +1,25 @@
-import os
 from functools import lru_cache
-
-from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from src.adapter.driver.api import config
+from adapter.driver.api.settings import Settings
 from src.adapter.driver.api.api_v1.api import router as api_router
 
-load_dotenv()
 
-root_path = os.getenv("ENV", default="")
+settings = Settings()
 
 
 @lru_cache()
 def get_settings():
-    return config.Settings()
+    return settings.Settings()
 
 
 app = FastAPI(
-    title="FastAPI Clean Architecture",
-    version="0.1.0",
-    docs_url="/docs",
-    redoc_url="/redoc",
-    openapi_url="/openapi.json",
-    root_path=f"/{root_path}",
+    title=settings.title,
+    version=settings.version,
+    docs_url=settings.docs_url,
+    redoc_url=settings.redoc_url,
+    openapi_url=settings.openapi_url,
+    root_path=settings.root_path,
 )
 
 app.add_middleware(
