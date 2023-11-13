@@ -1,17 +1,24 @@
+include:
+  - docker-compose-traefik.yml
+
 services:
   api:
     build: .
     restart: unless-stopped
     ports:
-      - "8000:8000"
+      - 8000:8000
     env_file:
       - .env.template
     depends_on:
       - postgres
-      - traefik
-    command: bash -c 'while !</dev/tcp/postgres/5432; do sleep 1; done; uvicorn src.adapter.driver.api.app:app --host 0.0.0.0'
+      - reverse-proxy
+    command: bash -c 'while !</dev/tcp/postgres/5432; do sleep 1; done; uvicorn src.adapter.driver.api.app:app --host 0.0.0.0 --port 8000'
     labels:
+      - "traefik.enable=true"
       - "traefik.http.routers.api.rule=Host(`api.localhost`)" # api.localhost:8000
+      - "traefik.docker.network=proxy"
+    networks:
+      - proxy
 
   migrations:
     build: .
@@ -20,6 +27,8 @@ services:
     depends_on:
       - postgres
     command: bash -c "while !</dev/tcp/postgres/5432; do sleep 1; done; alembic -c migrations/alembic/alembic.ini upgrade head"
+    networks:
+      - proxy
 
   postgres:
     image: postgres:16.0-alpine
@@ -30,21 +39,8 @@ services:
       - py_ports_adapters_postgres_data:/var/lib/postgresql/data
     env_file:
       - .env.template
-
-  traefik:
-    image: "traefik:v3.0"
-    restart: unless-stopped
-    command:
-      - "--api.insecure=true"
-      - "--providers.docker=true"
-      - "--log.level=DEBUG"
-    ports:
-      # The HTTP port
-      - "80:80"
-      # The Web UI (enabled by --api.insecure=true)
-      - "8080:8080"
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    networks:
+      - proxy
 
 volumes:
   py_ports_adapters_postgres_data:

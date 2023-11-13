@@ -1,7 +1,7 @@
 from functools import lru_cache
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from adapter.driver.api.settings import Settings
+from src.adapter.driver.api.settings import Settings
 from src.adapter.driver.api.api_v1.api import router as api_router
 
 
