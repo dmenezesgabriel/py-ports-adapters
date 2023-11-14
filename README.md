@@ -98,13 +98,14 @@ Are the ones with the goal of only send data and forget it like a message broker
 
 **Patterns**:
 
-- [unit of work](https://medium.com/@surajit.das0320/understanding-unit-of-work-manager-bcdfb9190d86)
+- [Unit of work](https://medium.com/@surajit.das0320/understanding-unit-of-work-manager-bcdfb9190d86)
 
 **Protocols**:
 
-- [how https works](https://howhttps.works/)
-- [how to configure nginx](https://web.archive.org/web/20230321180419/https://www.patricksoftwareblog.com/how-to-configure-nginx-for-a-flask-web-application/)
+- [How https works](https://howhttps.works/)
+- [How to configure nginx](https://web.archive.org/web/20230321180419/https://www.patricksoftwareblog.com/how-to-configure-nginx-for-a-flask-web-application/)
 
 **Configurations**:
 
-- [nginx](https://www.nginx.com/resources/wiki/start/topics/examples/full/)
+- [Nginx](https://www.nginx.com/resources/wiki/start/topics/examples/full/)
+- [Docker multi stage build](https://pythonspeed.com/articles/multi-stage-docker-python/)
