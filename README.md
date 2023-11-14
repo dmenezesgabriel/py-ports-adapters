@@ -88,11 +88,23 @@ Are the ones with the goal of only send data and forget it like a message broker
 
 ## Resources
 
+**Example repositories**:
+
 - https://github.com/bobthemighty/python-ports-adapters
 - https://github.com/jorzel/opentable
 - https://github.com/pcieslinski/courses_platform
 - https://github.com/evoludigit/clean_fastapi
 - https://github.com/kurosouza/webshop
-- https://medium.com/@surajit.das0320/understanding-unit-of-work-manager-bcdfb9190d86
-- https://github.com/pydantic/pydantic/issues/2897
+
+**Patterns**:
+
+- [unit of work](https://medium.com/@surajit.das0320/understanding-unit-of-work-manager-bcdfb9190d86)
+
+**Protocols**:
+
 - [how https works](https://howhttps.works/)
+- [how to configure nginx](https://web.archive.org/web/20230321180419/https://www.patricksoftwareblog.com/how-to-configure-nginx-for-a-flask-web-application/)
+
+**Configurations**:
+
+- [nginx](https://www.nginx.com/resources/wiki/start/topics/examples/full/)
