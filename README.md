@@ -103,12 +103,12 @@ Are the ones with the goal of only send data and forget it like a message broker
 **Protocols**:
 
 - [How https works](https://howhttps.works/)
-- [How to configure nginx](https://web.archive.org/web/20230321180419/https://www.patricksoftwareblog.com/how-to-configure-nginx-for-a-flask-web-application/)
 - [ssl in development environment](https://medium.com/geekculture/webapp-nginx-and-ssl-in-docker-compose-6d02bdbe8fa0)
 - [ssl](https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71)
 - [ssl localhost letsencrypt](https://letsencrypt.org/docs/certificates-for-localhost/)
 
 **Configurations**:
 
+- [How to configure nginx](https://web.archive.org/web/20230321180419/https://www.patricksoftwareblog.com/how-to-configure-nginx-for-a-flask-web-application/)
 - [Nginx](https://www.nginx.com/resources/wiki/start/topics/examples/full/)
 - [Docker multi stage build](https://pythonspeed.com/articles/multi-stage-docker-python/)

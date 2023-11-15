@@ -1,5 +1,5 @@
 include .env.template
-export $(shell sed 's/=.*//' .env)
+export $(shell sed 's/=.*//' .env.template)
 
 .PHONY: help clean clean-build coverage migrations
 
@@ -51,3 +51,8 @@ migrations:
 
 run:
 	python .
+
+certificates:
+	openssl req -x509 -nodes -newkey rsa:2048 -keyout nginx/certificates/key.pem -out nginx/certificates/cert.pem -sha256 -days 365 \
+		-subj "/C=BR/ST=SaoPaulo/L=SaoPaulo/O=Alros/OU=IT Department/CN=localhost"
+
