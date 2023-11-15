@@ -1,6 +1,34 @@
 # Ports and Adapters or Hexagonal Architecture in Python
 
-## Structure
+## Usage
+
+### Requirements
+
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+- [Make](https://www.gnu.org/software/make/)
+- [Python](https://www.python.org/downloads/)
+
+### Commands
+
+1. `make certificates` - Generate certificates for https.
+2. `docker compose up -d postgres` - Start the database.
+3. `docker compose run --rm migrations` - Run the migrations.
+4. `docker compose up -d api nginx` - Start the api and nginx.
+5. Go to `https://localhost:8443/docs` to see the swagger documentation.
+
+you can also run it outside docker
+
+1. `python -m venv venv` - Create a virtual environment.
+2. `source venv/bin/activate` - Activate the virtual environment.
+3. `pip install -r requirements.txt` - Install the dependencies.
+4. `make migrations` - Run the migrations.
+5. `make run` - Start the api.
+6. Go to `http://localhost:8000/docs` to see the swagger documentation.
+
+## Architecture
+
+Ports and Adapters or Hexagonal Architecture is an architectural pattern that allows us to create applications that are independent of frameworks, databases, or any external agency. It is also known as the onion architecture.
 
 ### Core
 
@@ -88,13 +116,13 @@ Are the ones with the goal of only send data and forget it like a message broker
 
 ## Resources
 
-**Example repositories**:
+**Clean architecture python repositories examples**:
 
-- https://github.com/bobthemighty/python-ports-adapters
-- https://github.com/jorzel/opentable
-- https://github.com/pcieslinski/courses_platform
-- https://github.com/evoludigit/clean_fastapi
-- https://github.com/kurosouza/webshop
+- [bobthemighty/python-ports-adapters](https://github.com/bobthemighty/python-ports-adapters)
+- [jorzel/opentable](https://github.com/jorzel/opentable)
+- [pcieslinski/courses_platform](https://github.com/pcieslinski/courses_platform)
+- [evoludigit/clean_fastapi](https://github.com/evoludigit/clean_fastapi)
+- [kurosouza/webshop](https://github.com/kurosouza/webshop)
 
 **Patterns**:
 
