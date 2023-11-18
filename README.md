@@ -30,6 +30,8 @@ you can also run it outside docker
 
 Ports and Adapters or Hexagonal Architecture is an architectural pattern that allows us to create applications that are independent of frameworks, databases, or any external agency. It is also known as the onion architecture.
 
+![img](./docs/images/ports-adapters.drawio.png)
+
 ### Core
 
 Contains the business logic of the application. It is independent of any framework or database.
