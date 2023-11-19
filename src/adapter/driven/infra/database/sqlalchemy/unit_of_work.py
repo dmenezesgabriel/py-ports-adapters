@@ -1,4 +1,6 @@
 from src.core.application.ports.unit_of_work import UnitOfWork
+from src.core.domain.base.exceptions import OperationalException
+from sqlalchemy.exc import SQLAlchemyError
 
 
 class SQLAlchemyUnitOfWork(UnitOfWork):
@@ -11,8 +13,9 @@ class SQLAlchemyUnitOfWork(UnitOfWork):
     def __exit__(self, type, value, traceback):
         try:
             self.session.commit()
-        except Exception:
+        except SQLAlchemyError as error:
             self.session.rollback()
+            raise OperationalException(error)
 
     def commit(self):
         self.session.commit()
