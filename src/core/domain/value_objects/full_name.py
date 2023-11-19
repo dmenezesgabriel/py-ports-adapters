@@ -6,7 +6,18 @@ class FullName(BaseModel):
     last_name: str
 
     def __init__(self, first_name: str, last_name: str):
-        super().__init__(first_name=first_name, last_name=last_name)
+        super().__init__(
+            first_name=first_name.lower(),
+            last_name=last_name.lower()
+        )
+
+    @property
+    def capitalized_first_name(self):
+        return self.first_name.capitalize()
+
+    @property
+    def capitalized_last_name(self):
+        return self.last_name.capitalize()
 
     def __eq__(self, other):
         if isinstance(other, FullName):
