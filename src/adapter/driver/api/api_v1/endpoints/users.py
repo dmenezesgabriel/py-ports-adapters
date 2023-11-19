@@ -42,7 +42,14 @@ async def create_user(user: User):
         raise HTTPException(
             status_code=400, detail="User with this email already exists"
         )
-    return user_controller.create(UserModel(**user.model_dump()))
+    return user_controller.create(
+        UserModel(
+            email=user.email,
+            password=user.password,
+            first_name=user.full_name.first_name,
+            last_name=user.full_name.last_name
+        )
+    )
 
 
 @router.delete("/{user_id}")
