@@ -1,10 +1,9 @@
 import uvicorn
 
-
 if __name__ == "__main__":
     uvicorn.run(
-        "src.adapter.driver.api.app:app",
+        "src.adapter.driver.presentation.api.app:app",
         host="0.0.0.0",
         port=8000,
-        reload=True
+        reload=True,
     )

@@ -1,5 +1,6 @@
 from fastapi import APIRouter
-from src.adapter.driver.api.api_v1.endpoints import users
+
+from src.adapter.driver.presentation.api.api_v1.endpoints import users
 
 router = APIRouter()
 

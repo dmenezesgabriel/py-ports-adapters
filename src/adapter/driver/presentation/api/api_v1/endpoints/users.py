@@ -1,6 +1,7 @@
 from typing import List
 
 from fastapi import APIRouter, HTTPException
+
 from src.adapter.driven.infra.database.sqlalchemy.models.user import (
     User as UserModel,
 )
@@ -10,7 +11,7 @@ from src.adapter.driven.infra.database.sqlalchemy.repositories.user import (
 from src.adapter.driven.infra.database.sqlalchemy.unit_of_work_manager import (
     SQLAlchemyUnitOfWorkManager,
 )
-from src.adapter.driver.api.controllers.user import UserController
+from src.adapter.driver.presentation.api.controllers.user import UserController
 from src.core.application.services.user import UserService
 from src.core.domain.entities.user import User
 
@@ -47,7 +48,7 @@ async def create_user(user: User):
             email=user.email,
             password=user.password,
             first_name=user.full_name.first_name,
-            last_name=user.full_name.last_name
+            last_name=user.full_name.last_name,
         )
     )
 
