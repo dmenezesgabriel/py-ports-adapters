@@ -119,8 +119,9 @@ Are the ones with the goal of only send data and forget it like a message broker
 | | | |____ports
 | | | |____services
 | | |____domain
-| | | |____base
+| | | |____common
 | | | |____entities
+| | | |____events
 | | | |____value_objects
 |____tests
 | |____core

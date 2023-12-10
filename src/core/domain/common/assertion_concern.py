@@ -5,7 +5,7 @@ you want to add custom validation or remove pydantic.
 
 Usage example:
 
-from src.core.domain.base.assertion_concern import AssertionConcern
+from src.core.domain.common.assertion_concern import AssertionConcern
 
 class FullName(AssertionConcern):
     def __init__(self, first_name: str, last_name: str):
@@ -124,8 +124,7 @@ class AssertionConcern(BaseModel):
         if value is None or value <= min_value:
             raise ValueError(message)
 
-    def _assert_argument_greater_or_equal_than(
-            self, value, min_value, message):
+    def _assert_argument_greater_or_equal_than(self, value, min_value, message):
         """Assert argument greater or equal than."""
         if value is None or value < min_value:
             raise ValueError(message)

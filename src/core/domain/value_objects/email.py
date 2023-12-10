@@ -1,5 +1,6 @@
 import re
-from src.core.domain.base.exceptions import InvalidEmailError
+
+from src.core.domain.common.exceptions import InvalidEmailError
 
 
 class Email:

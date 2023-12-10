@@ -1,6 +1,7 @@
-from src.core.application.ports.unit_of_work import UnitOfWork
-from src.core.domain.base.exceptions import OperationalException
 from sqlalchemy.exc import SQLAlchemyError
+from src.core.domain.common.exceptions import OperationalException
+
+from src.core.application.ports.unit_of_work import UnitOfWork
 
 
 class SQLAlchemyUnitOfWork(UnitOfWork):
