@@ -92,37 +92,42 @@ Are the ones with the goal of only send data and forget it like a message broker
 ```sh
 .
 |____.vscode
+|____docs
+| |____images
+|____migrations
+| |____alembic
+| | |____versions
+|____nginx
+| |____certificates
 |____src
 | |____adapter
-| | |____driver
-| | | |____api
-| | | | |____api_v1
-| | | | | |____endpoints
-| | | | |____controllers
 | | |____driven
 | | | |____infra
+| | | | |____config
 | | | | |____database
 | | | | | |____sqlalchemy
 | | | | | | |____models
 | | | | | | |____repositories
-| | | | |____config
+| | |____driver
+| | | |____presentation
+| | | | |____api
+| | | | | |____api_v1
+| | | | | | |____endpoints
+| | | | | |____controllers
 | |____core
+| | |____application
+| | | |____ports
+| | | |____services
 | | |____domain
 | | | |____base
 | | | |____entities
 | | | |____value_objects
-| | |____application
-| | | |____services
-| | | |____ports
 |____tests
 | |____core
-| | |____domain
-| | | |____entities
 | | |____application
 | | | |____services
-|____migrations
-| |____alembic
-| | |____versions
+| | |____domain
+| | | |____entities
 ```
 
 ## Resources
