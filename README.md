@@ -11,10 +11,19 @@
 
 ### Commands
 
+#### Windows
+
+1. `docker compose -f docker-compose.dev.yml up -d postgres` - Start the database.
+2. `docker compose -f docker-compose.dev.yml run --rm migrations` - Run the migrations.
+3. `docker compose -f docker-compose.dev.yml up -d api` - Start the api and nginx.
+4. Go to `https://localhost:8000/docs` to see the swagger documentation.
+
+#### Linux
+
 1. `make certificates` - Generate certificates for https.
-2. `docker compose up -d postgres` - Start the database.
-3. `docker compose run --rm migrations` - Run the migrations.
-4. `docker compose up -d api nginx` - Start the api and nginx.
+2. `docker compose -f docker-compose.prod.yml up -d postgres` - Start the database.
+3. `docker compose -f docker-compose.prod.yml run --rm migrations` - Run the migrations.
+4. `docker compose -f docker-compose.prod.yml up -d api nginx` - Start the api and nginx.
 5. Go to `https://localhost:8443/docs` to see the swagger documentation.
 
 you can also run it outside docker
